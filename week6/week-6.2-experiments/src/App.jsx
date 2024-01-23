@@ -1,10 +1,10 @@
 import './App.css';
-import Two from './components/Two';
+import Four from './components/Four';
 
 function App() {
   return (
     <div>
-      <Two id={2} />
+      <Four />
     </div>
   );
 }
@@ -13,3 +13,4 @@ export default App;
 
 // <One/>
 // <Two id={7} />
+// <Three />
