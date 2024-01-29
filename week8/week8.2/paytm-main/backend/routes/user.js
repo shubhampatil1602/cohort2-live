@@ -15,7 +15,7 @@ const signupBody = z.object({
 });
 
 router.post('/signup', async (req, res) => {
-  console.log('Received a POST request to /api/v1/user/signup');
+  // console.log('Received a POST request to /api/v1/user/signup');
   const { username, password, firstName, lastName } = req.body;
   const { success } = signupBody.safeParse(req.body);
   if (!success) {
