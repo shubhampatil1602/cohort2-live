@@ -1,4 +1,3 @@
-import { createContext, useMemo } from 'react';
 import { atom, selector } from 'recoil';
 
 export const countAtom = atom({
@@ -6,6 +5,7 @@ export const countAtom = atom({
   default: 0,
 });
 
+// slectors depends on atom
 export const evenSelector = selector({
   key: 'evenSelector',
   get: ({ get }) => {
@@ -14,5 +14,7 @@ export const evenSelector = selector({
   },
 });
 
-// Todo creation application with filtering logic
-// todos, filter
+export const titleAtom = atom({
+  key: 'titleAtom',
+  default: '',
+});
