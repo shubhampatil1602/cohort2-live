@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Debouncing And Throtolling</title>
+    <style>
+      body {
+        background: #082832;
+        color: white;
+      }
+      input {
+        padding: 12px 14px;
+        font-size: 20px;
+        width: 700px;
+        margin: 20px;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Debouncing And Throtolling</h1>
+    <input
+      type="text"
+      placeholder="Debouncing And Throtolling..."
+      oninput="run()"
+    />
+    <script>
+      let count = 0;
+      let id;
+      function run() {
+        clearTimeout(id);
+        id = setTimeout(() => {
+          console.log('running...', ++count);
+        }, 300);
+      }
+    </script>
+  </body>
+</html>

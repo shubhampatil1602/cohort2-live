@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sum & Interest</title>
+  </head>
+  <body>
+    <h1>Sum</h1>
+    <form>
+      <input type="number" placeholder="number1" id="a" />
+      <input type="number" placeholder="number2" id="b" />
+      <button type="submit" onclick="event.preventDefault(); sum()">
+        Submit
+      </button>
+    </form>
+
+    <h2 id="output"></h2>
+    <br />
+    <hr />
+
+    <h1>Interest</h1>
+    <form>
+      <input type="number" placeholder="principal" id="principal" />
+      <input type="number" placeholder="rate" id="rate" />
+      <input type="number" placeholder="time" id="time" />
+      <button type="submit" onclick="event.preventDefault(); interest()">
+        Submit
+      </button>
+    </form>
+
+    <h2 id="output2"></h2>
+
+    <script>
+      function sum() {
+        // console.log(event);
+        const a = document.getElementById('a').value;
+        const b = document.getElementById('b').value;
+        fetchSum(a, b);
+      }
+      async function fetchSum(a, b) {
+        try {
+          const res = await fetch(`http://localhost:3001/sum?a=${a}&b=${b}`);
+          const text = await res.text();
+          document.querySelector('#output').innerHTML = text;
+        } catch (error) {
+          console.log(error);
+        }
+      }
+
+      function interest() {
+        // console.log(event);
+        const principal = document.getElementById('principal').value;
+        const rate = document.getElementById('rate').value;
+        const time = document.getElementById('time').value;
+        fetchInterest(principal, rate, time);
+      }
+      async function fetchInterest(principal, rate, time) {
+        try {
+          const res = await fetch(
+            `http://localhost:3001/interest?principal=${principal}&rate=${rate}&time=${time}`
+          );
+          const json = await res.json();
+          const { total, interest } = json;
+          document.querySelector(
+            '#output2'
+          ).innerHTML = `Total: ${total}, Interest: ${interest}`;
+        } catch (error) {
+          console.log(error);
+        }
+      }
+    </script>
+  </body>
+</html>

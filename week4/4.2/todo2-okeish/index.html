@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Todo</title>
+    <style>
+      .div {
+        display: flex;
+        gap: 10px;
+        justify-content: center;
+      }
+      input,
+      button {
+        padding: 10px;
+        font-size: 16px;
+      }
+      #title {
+        width: 30%;
+      }
+      #description {
+        width: 50%;
+      }
+      button {
+        cursor: pointer;
+      }
+      #container {
+        display: flex;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 10px;
+        margin-top: 10px;
+        margin: auto;
+      }
+      .todo {
+        border: 1px solid;
+        padding: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <h1 style="text-align: center">Basic Todo</h1>
+    <div class="div">
+      <input id="title" type="text" placeholder="title" />
+      <input id="description" type="text" placeholder="description" />
+      <button id="submit" onclick="addTodo()">Submit</button>
+    </div>
+    <div id="container"></div>
+    <script src="index.js"></script>
+  </body>
+</html>
